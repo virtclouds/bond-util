@@ -107,19 +107,19 @@ if __name__ == '__main__':
                 NETMASK=255.255.255.0
                 BONDING_OPTS="mode=active-backup miimon=100"
                 '''
-                bond_data['NAME'] = bond_name
-                bond_data['DEVICE'] = bond_name                
                 bond_data['TYPE'] = 'Bond'
                 bond_data['BONDING_MASTER'] = 'yes'
                 
                 bond_data['ONBOOT'] = 'yes'
                 bond_data['USERCTL'] = 'no'
                 bond_data['NM_CONTROLLED'] = 'no'
-                bond_data['IPADDR'] = bond_ip
                 bond_data['BOOTPROTO'] = 'none'
                 
                 default_bond = read('/etc/bond-util/bond_'+suffix) 
                 bond_data.update(default_bond)
+                bond_data['DEVICE'] = bond_name                
+                bond_data['NAME'] = bond_name
+                bond_data['IPADDR'] = bond_ip
 
                 if bond_vlan:
                     '''
