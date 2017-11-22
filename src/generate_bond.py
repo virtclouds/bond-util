@@ -119,7 +119,8 @@ if __name__ == '__main__':
                 bond_data.update(default_bond)
                 bond_data['DEVICE'] = bond_name                
                 bond_data['NAME'] = bond_name
-                bond_data['IPADDR'] = bond_ip
+                if bond_ip:
+                    bond_data['IPADDR'] = bond_ip
 
                 if bond_vlan:
                     '''
