@@ -1,6 +1,6 @@
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root  
 Name:		bond-util
-Version:	1.0
+Version:	1.1
 Release:	1%{?dist}
 Summary:	bond-util rpm package
 
@@ -36,4 +36,5 @@ install -m 755 src/generate_bond.py $RPM_BUILD_ROOT/usr/bin/generate-bond
 
 
 %changelog
-
+* Wed Nov 22 2017 Zhaokun Fu <fuzk@inspur.com> - 1.0-1
+- Add gatway for bond configuration.
