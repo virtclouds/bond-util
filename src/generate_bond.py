@@ -55,7 +55,7 @@ if __name__ == '__main__':
                     continue
                 
                 suffix = net_type.lower()
-                dir_path = os.path.join('/tmp/', row['ADMIN_IP'], suffix)
+                dir_path = os.path.join('/tmp/', row['PXE_IP'], suffix)
                 if not os.path.exists(dir_path):
                     os.makedirs(dir_path) 
                     
@@ -119,7 +119,10 @@ if __name__ == '__main__':
                 bond_data.update(default_bond)
                 bond_data['DEVICE'] = bond_name                
                 bond_data['NAME'] = bond_name
-                if bond_ip:
+                if not bond_ip:
+                    bond_data.pop('IPADDR',None)
+                    bond_data.pop('NETMASK',None)
+                else:
                     bond_data['IPADDR'] = bond_ip
 
                 if bond_vlan:
